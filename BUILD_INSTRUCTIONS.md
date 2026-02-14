@@ -52,9 +52,12 @@ java -cp "resource/*;bin" Driver
 
 ## Known Issues
 
-- **Issue #2:** ADAT-Stemmer.v1.20180101.jar is corrupted. Currently excluded from classpath.
+- **Issue #2:** ~~ADAT-Stemmer.v1.20180101.jar is corrupted~~ - RESOLVED: JAR is not used by application, safely excluded from classpath.
 - **Issue #3:** Application requires MariaDB server to be running on localhost:3306
-- **Issue #4:** Compilation requires UTF-8 encoding flag
+
+## Resolved Issues
+
+- **Issue #4:** ~~Compilation requires UTF-8 encoding flag~~ - RESOLVED: build.bat now includes -encoding UTF-8 flag
 
 ## Testing
 
