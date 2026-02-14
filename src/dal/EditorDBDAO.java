@@ -219,7 +219,9 @@ public class EditorDBDAO implements IEditorDBDAO {
 
 //			tfidfStmt = conn.prepareStatement(tfidfQuery);
 			tfidfStmt.setInt(1, fileID);
-			tfidfStmt.setDouble(2, tfidf);
+			// Handle NaN and Infinity cases - set to 0.0 if invalid
+			double tfidfValue = (Double.isNaN(tfidf) || Double.isInfinite(tfidf)) ? 0.0 : tfidf;
+			tfidfStmt.setDouble(2, tfidfValue);
 			tfidfStmt.executeUpdate();
 
 			conn.commit();
