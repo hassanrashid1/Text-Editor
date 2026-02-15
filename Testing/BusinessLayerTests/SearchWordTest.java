@@ -27,9 +27,6 @@ public class SearchWordTest {
         testDocuments = new ArrayList<>();
         
         // Document 1: Multiple pages
-        Documents doc1 = new Documents();
-        doc1.setId(1);
-        doc1.setName("TestDoc1.txt");
         
         Pages page1 = new Pages(1, 1, 1, "The quick brown fox jumps over the lazy dog");
         Pages page2 = new Pages(2, 1, 2, "The fox is very clever and fast");
@@ -37,17 +34,15 @@ public class SearchWordTest {
         List<Pages> pages1 = new ArrayList<>();
         pages1.add(page1);
         pages1.add(page2);
-        doc1.setPages(pages1);
+        
+        Documents doc1 = new Documents(1, "TestDoc1.txt", "hash1", "2026-02-14", "2026-02-14", pages1);
         
         // Document 2: Single page
-        Documents doc2 = new Documents();
-        doc2.setId(2);
-        doc2.setName("TestDoc2.txt");
-        
         Pages page3 = new Pages(3, 2, 1, "Programming in Java is fun and rewarding");
         List<Pages> pages2 = new ArrayList<>();
         pages2.add(page3);
-        doc2.setPages(pages2);
+        
+        Documents doc2 = new Documents(2, "TestDoc2.txt", "hash2", "2026-02-14", "2026-02-14", pages2);
         
         testDocuments.add(doc1);
         testDocuments.add(doc2);
@@ -170,14 +165,11 @@ public class SearchWordTest {
     @Test
     public void testSearchKeyword_KeywordAtStart_NoPrefix() {
         // Arrange: Create document with keyword at start
-        Documents doc = new Documents();
-        doc.setId(3);
-        doc.setName("StartDoc.txt");
-        
         Pages page = new Pages(1, 3, 1, "Programming is great");
         List<Pages> pages = new ArrayList<>();
         pages.add(page);
-        doc.setPages(pages);
+        
+        Documents doc = new Documents(3, "StartDoc.txt", "hash3", "2026-02-14", "2026-02-14", pages);
         
         List<Documents> docs = new ArrayList<>();
         docs.add(doc);

@@ -7,6 +7,7 @@ import bll.FacadeBO;
 import bll.IEditorBO;
 import dto.Documents;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import static org.mockito.Mockito.*;
 
@@ -119,8 +120,7 @@ public class FacadeBOTest {
     public void testGetFile_DelegatesToBO() {
         // Arrange
         int id = 1;
-        Documents mockDoc = new Documents();
-        mockDoc.setId(id);
+        Documents mockDoc = new Documents(id, "test.txt", "hash", "2026-02-14", "2026-02-14", new ArrayList<>());
         when(mockEditorBO.getFile(id)).thenReturn(mockDoc);
         
         // Act
